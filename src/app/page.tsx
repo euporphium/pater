@@ -30,6 +30,7 @@ export default async function Home() {
             action={signOut}
             className="grid place-items-center text-center"
           >
+            <h1>Hi, {user.user_metadata.firstName ?? 'there'}!</h1>
             <button className="mb-2 rounded-sm bg-red-900 px-4 py-2 text-white">
               Log Out
             </button>

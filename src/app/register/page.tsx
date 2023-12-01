@@ -25,6 +25,8 @@ export default async function Login({
     const origin = headers().get('origin');
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
+    const firstName = formData.get('firstName') as string;
+    const lastName = formData.get('lastName') as string;
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
 
@@ -32,6 +34,7 @@ export default async function Login({
       email,
       password,
       options: {
+        data: { firstName, lastName },
         emailRedirectTo: `${origin}/auth/callback`,
       },
     });
@@ -51,6 +54,30 @@ export default async function Login({
         className="flex w-full max-w-md flex-1 flex-col justify-center gap-2"
         action={signUp}
       >
+        <label className="text-md" htmlFor="firstName">
+          First Name
+        </label>
+        <input
+          id="firstName"
+          className="mb-6 rounded-sm border bg-inherit px-4 py-2"
+          type="text"
+          name="firstName"
+          placeholder="Tony"
+          required
+        />
+
+        <label className="text-md" htmlFor="lastName">
+          Last Name
+        </label>
+        <input
+          id="lastName"
+          className="mb-6 rounded-sm border bg-inherit px-4 py-2"
+          type="text"
+          name="lastName"
+          placeholder="Stark"
+          required
+        />
+
         <label className="text-md" htmlFor="email">
           Email
         </label>
