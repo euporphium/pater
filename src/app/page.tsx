@@ -17,7 +17,7 @@ export default async function Home() {
     const cookieStore = cookies();
     const supabase = createClient(cookieStore);
     await supabase.auth.signOut();
-    return redirect('/login');
+    return redirect('auth/login');
   }
 
   await supabase.auth.signOut();
@@ -35,13 +35,13 @@ export default async function Home() {
         <div className="grid place-items-center text-center">
           <h1 className="mb-8 text-5xl">Come In</h1>
           <Link
-            href="/register"
+            href={'/auth/register'}
             className="mb-2 w-full rounded-sm bg-green-900 px-8 py-4 text-center text-white"
           >
             Create a New Account
           </Link>
           <Link
-            href="/login"
+            href={'/auth/login'}
             className="mb-2 w-full rounded-sm bg-green-900 px-4 py-2 text-center text-white"
           >
             Log In
