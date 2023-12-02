@@ -2,7 +2,7 @@ CREATE TABLE profiles (
     id UUID NOT NULL REFERENCES auth.users ON DELETE CASCADE,
     first_name TEXT,
     last_name TEXT,
-    last_modified TIMESTAMP WITH TIME ZONE DEFAULT now(),
+    last_modified TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
 
     PRIMARY KEY (id)
 );
