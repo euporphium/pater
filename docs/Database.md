@@ -21,5 +21,5 @@ supabase db reset
 ### Generate TypeScript types for database schema.
 
 ```bash
-supabase gen types typescript --local > database.types.ts
+supabase gen types typescript --local > database.gen.ts
 ```
