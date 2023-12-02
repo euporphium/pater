@@ -33,7 +33,7 @@ export default async function Login({
     });
 
     if (error) {
-      return redirect('/login?message=Could not authenticate user');
+      return redirect('/auth/login?message=Could not authenticate user');
     }
 
     return redirect('/');
@@ -67,7 +67,7 @@ export default async function Login({
         <button className="mb-2 rounded-sm bg-green-900 px-4 py-2 text-white">
           Log In
         </button>
-        <Link className="underline" href={'/register'}>
+        <Link className="underline" href={'/auth/register'}>
           Create a New Account
         </Link>
         {searchParams?.message && (
