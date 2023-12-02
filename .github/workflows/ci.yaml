@@ -22,6 +22,8 @@ jobs:
         run: |
           supabase gen types typescript --local > database.gen.ts
           echo "you made it this far"
+          git diff
+          echo "that was the diff"
           # if git diff --ignore-space-at-eol --exit-code --quiet database.gen.ts; then
           #   echo "Detected uncommitted changes after build. See status below:"
           #   git diff
